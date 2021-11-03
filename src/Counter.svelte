@@ -1,10 +1,14 @@
 <script>
 import Icon from 'svelte-awesome';
+// import { getContext } from 'svelte';
+import Dialog from './Dialog.svelte';
 import {edit, checkCircle, minusCircle, plusCircle} from 'svelte-awesome/icons';
 export let name= 'Unnamed Counter';
 export let value= 0;
 let editName= false;
 let showOptionMenu = false;
+
+// const { open } = getContext('simple-modal');
 function editCounternNameHandler() {
     console.log("edit counter name handler");
 }
@@ -33,9 +37,26 @@ function optionMenuToggleHandler() {
     console.log("clicked optionMenuToggleHandler");
     showOptionMenu = !showOptionMenu;
 }
+// const showDialog = () => {
+// 		open(
+// 			Dialog,
+// 			{
+// 				message: "What is your name?",
+// 				hasForm: true,
+// 				onCancel,
+// 				onOkay
+// 			},
+// 			{
+// 				closeButton: false,
+//     		closeOnEsc: false,
+//     		closeOnOuterClick: false,
+// 			}
+// 	  );
+// 	};
 </script>
 
 <div class="counter">
+    <!-- <button on:click={showDialog}>Show a dialog!</button> -->
     <div class="counterName">
         {#if !editName}
             <span>
